@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam — Dane Harvy A. Buban</title>
+<meta name="description" content="Exam results of Dane Harvy A. Buban — BSIT 3B.">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">DB</span>
+      <span class="logo-text">Dane&nbsp;Buban</span>
+    </a>
+ 
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="exam.html" class="nav-link active">Exam</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+ 
+    <div class="nav-controls">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+ 
+<main>
+ 
+  <section id="exam" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Exam</h2>
+ 
+      <article class="exam-feature">
+        <div class="exam-media">
+          <a href="prelim exam.jpg" class="zoom-link" aria-label="View exam result full size">
+            <img src="prelim exam.jpg" alt="Network Simulator Assessment Exam result">
+          </a>
+          <span class="exam-hint">
+            
+          </span>
+        </div>
+            </article>
+    </div>
+  </section>
+ 
+</main>
+ 
+<!-- Image lightbox -->
+<style>
+  .lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:#000;padding:0;}
+  .lightbox.open{display:flex;}
+  .lightbox img{width:100vw;height:100vh;height:100dvh;object-fit:contain;display:block;border-radius:0;box-shadow:none;}
+  .lightbox-close{position:fixed;top:16px;right:16px;z-index:10000;width:48px;height:48px;border:none;border-radius:50%;background:#fff;color:#111;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.6);}
+  .lightbox-close:hover{background:#e5e5e5;}
+</style>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  function open(src, alt) { img.src = src; img.alt = alt || ''; box.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { box.classList.remove('open'); img.src = ''; document.body.style.overflow = ''; }
+  document.querySelectorAll('.zoom-link').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var im = a.querySelector('img');
+      open(a.getAttribute('href'), im ? im.alt : '');
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', close);
+  box.addEventListener('click', function (e) { if (e.target === box) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+ 
+<script src="script.js"></script>
+</body>
+</html>
+ 

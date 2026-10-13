@@ -5,31 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quiz — Dane Harvy A. Buban</title>
 <meta name="description" content="A quick quiz about Dane Harvy A. Buban — BSIT 3B.">
-
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+ 
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+ 
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="logo">
       <span class="logo-mark">DB</span>
       <span class="logo-text">Dane&nbsp;Buban</span>
     </a>
-
+ 
     <nav class="main-nav" id="main-nav">
       <a href="index.html" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="skills.html" class="nav-link">Skills</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="quiz.html" class="nav-link active">Quiz</a>
+      <a href="exam.html" class="nav-link">Exam</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
-
+ 
     <div class="nav-controls">
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme">
         <span class="theme-icon" aria-hidden="true">◐</span>
@@ -40,48 +41,94 @@
     </div>
   </div>
 </header>
-
+ 
 <main>
-
+ 
   <section id="quiz" class="section">
     <div class="section-inner">
       <h2 class="section-title">Quiz</h2>
-
+ 
       <div class="quiz-gallery" style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:24px;">
-
+ 
         <div class="quiz-card" style="flex:1 1 240px; max-width:300px;">
-          <a href="Screenshot_2026-08-27_213609.png" target="_blank" rel="noopener">
+          <a href="Screenshot_2026-08-27_213609.png" class="zoom-link">
             <img src="Screenshot_2026-08-27_213609.png" alt="Quiz 1 result" style="width:100%; border-radius: 8px; display:block; cursor: zoom-in;">
           </a>
         </div>
-
+ 
         <div class="quiz-card" style="flex:1 1 240px; max-width:300px;">
-          <a href="Screenshot_2026-09-23_191224.png" target="_blank" rel="noopener">
+          <a href="Screenshot_2026-09-23_191224.png" class="zoom-link">
             <img src="Screenshot_2026-09-23_191224.png" alt="Quiz 2 - Virtualization score 20/20" style="width:100%; border-radius: 8px; display:block; cursor: zoom-in;">
           </a>
           <p style="margin-top:8px; font-size:0.9rem; text-align:center;">Quiz 2 - Virtualization: 20/20</p>
         </div>
-
+ 
         <div class="quiz-card" style="flex:1 1 240px; max-width:300px;">
-          <a href="Screenshot_2026-09-23_191240.png" target="_blank" rel="noopener">
+          <a href="Screenshot_2026-09-23_191240.png" class="zoom-link">
             <img src="Screenshot_2026-09-23_191240.png" alt="Quiz 3 - Virtual Machine score 19/20" style="width:100%; border-radius: 8px; display:block; cursor: zoom-in;">
           </a>
           <p style="margin-top:8px; font-size:0.9rem; text-align:center;">Quiz 3 - Virtual Machine: 19/20</p>
         </div>
-
+ 
         <div class="quiz-card" style="flex:1 1 240px; max-width:300px;">
-          <a href="Screenshot_2026-09-23_191251 (1).png" target="_blank" rel="noopener">
+          <a href="Screenshot_2026-09-23_191251 (1).png" class="zoom-link">
             <img src="Screenshot_2026-09-23_191251 (1).png" alt="Long Quiz score 37/40" style="width:100%; border-radius: 8px; display:block; cursor: zoom-in;">
           </a>
           <p style="margin-top:8px; font-size:0.9rem; text-align:center;">Long Quiz: 37/40</p>
         </div>
-
+ 
+        <div class="quiz-card" style="flex:1 1 240px; max-width:300px;">
+          <a href="quiz1.png" class="zoom-link">
+            <img src="quiz1.png" alt="Quiz 4 - Cloud Computing Networking score 12/25" style="width:100%; border-radius: 8px; display:block; cursor: zoom-in;">
+          </a>
+          <p style="margin-top:8px; font-size:0.9rem; text-align:center;">Quiz 4 - Cloud Computing Networking: 12/25</p>
+        </div>
+ 
+        <div class="quiz-card" style="flex:1 1 240px; max-width:300px;">
+          <a href="quiz2.png" class="zoom-link">
+            <img src="quiz2.png" alt="Virtual Network Features and Networking Part 2 score 30/30" style="width:100%; border-radius: 8px; display:block; cursor: zoom-in;">
+          </a>
+          <p style="margin-top:8px; font-size:0.9rem; text-align:center;">Virtual Network Features and Networking Part 2: 30/30</p>
+        </div>
+ 
       </div>
     </div>
   </section>
-
+ 
 </main>
-
+ 
+ 
+<!-- Image lightbox -->
+<style>
+  .lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);padding:24px;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.5);}
+  .lightbox-close{position:absolute;top:16px;right:20px;width:44px;height:44px;border:none;border-radius:50%;background:#fff;color:#111;font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .lightbox-close:hover{background:#e5e5e5;}
+</style>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  function open(src, alt) { img.src = src; img.alt = alt || ''; box.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { box.classList.remove('open'); img.src = ''; document.body.style.overflow = ''; }
+  document.querySelectorAll('.zoom-link').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var im = a.querySelector('img');
+      open(a.getAttribute('href'), im ? im.alt : '');
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', close);
+  box.addEventListener('click', function (e) { if (e.target === box) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+ 
 <script src="script.js"></script>
 </body>
 </html>

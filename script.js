@@ -1,7 +1,17 @@
+/* ==========================================================================
+   PORTFOLIO SCRIPT
+   This one script.js is shared by every page (index, about, skills,
+   projects, quiz, contact). Each section below checks that its markup
+   actually exists on the current page before wiring anything up.
+   Sections: 1) Mobile menu  2) Theme toggle  3) Quiz logic
+             4) Contact form  5) Footer year
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  
+  /* ---------------------------------------------------------------------
+     1) MOBILE MENU TOGGLE
+  --------------------------------------------------------------------- */
   const menuToggle = document.getElementById('menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
@@ -11,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
- 
+  // Close mobile menu after a nav link is clicked
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       mainNav.classList.remove('open');
@@ -20,10 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  
+  /* ---------------------------------------------------------------------
+     2) THEME TOGGLE (dark / light, persisted in memory for this session)
+     Edit the CSS variables in styles.css (:root and [data-theme="light"])
+     to change the actual colors used by each theme.
+  --------------------------------------------------------------------- */
   const themeToggle = document.getElementById('theme-toggle');
   const root = document.documentElement;
 
+  // Respect the visitor's OS-level preference on first load
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
   if (prefersLight) root.setAttribute('data-theme', 'light');
 
@@ -32,7 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
     root.setAttribute('data-theme', isLight ? 'dark' : 'light');
   });
 
-  
+  /* ---------------------------------------------------------------------
+     3) INTERACTIVE QUIZ
+     (Nav links are now real links between separate pages — no anchors,
+     no scrolling, no scroll-offset math needed.)
+     Edit the "questions" array below to write your own quiz —
+     each entry needs a question, an options array, and the
+     zero-based index of the correct option.
+  --------------------------------------------------------------------- */
   const questions = [
     {
       question: "What's my primary front-end language of choice?",
@@ -149,20 +171,27 @@ document.addEventListener('DOMContentLoaded', () => {
   loadQuestion(); // kick off the quiz on page load
   } // end quiz-page guard
 
- 
+  /* ---------------------------------------------------------------------
+     4) CONTACT FORM (placeholder submit handler)
+     Replace this with a real integration — e.g. Formspree, Netlify Forms,
+     EmailJS, or a fetch() call to your own backend endpoint.
+     Only the contact page has this markup.
+  --------------------------------------------------------------------- */
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-     
+      // TODO: send form data to your backend or form service here.
       formStatus.textContent = 'Thanks! This form is a placeholder — connect it to a service to receive messages.';
       contactForm.reset();
     });
   }
 
-  
+  /* ---------------------------------------------------------------------
+     5) FOOTER YEAR
+  --------------------------------------------------------------------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
