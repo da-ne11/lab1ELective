@@ -51,19 +51,90 @@
       <article class="exam-feature">
         <div class="exam-media">
           <a href="prelim exam.jpg" class="zoom-link" aria-label="View exam result full size">
-            <img src="prelim exam.jpg" alt="Network Simulator Assessment Exam result">
+            <img src="prelim exam.jpg" alt="Elective 3 - Cloud Computing and Emerging Technology prelim exam answer sheet">
           </a>
           <span class="exam-hint">
             
           </span>
         </div>
-            </article>
+      </article>
+
+      <style>
+        .attempt-card{margin-top:32px;background:#f8f9fd;color:#1b2a4a;border:1px solid #d9deea;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);font-family:'Inter',system-ui,sans-serif;}
+        .attempt-head{padding:20px 24px;border-bottom:3px solid #f0b400;background:#fff;}
+        .attempt-head h3{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:1.25rem;color:#12285a;}
+        .attempt-body{padding:20px 24px 24px;}
+        .attempt-note{background:#e9eefb;border-left:4px solid #2b49b5;border-radius:6px;padding:12px 16px;font-size:.92rem;margin-bottom:16px;}
+        .attempt-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+        .attempt-stat{background:#fff;border:1px solid #d9deea;border-left:4px solid #2b49b5;border-radius:10px;padding:12px 16px;}
+        .attempt-stat span{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b7794;}
+        .attempt-stat strong{display:block;margin-top:4px;font-family:Georgia,'Times New Roman',serif;font-size:1.6rem;color:#12285a;}
+        .attempt-table-wrap{border:1px solid #d9deea;border-radius:10px;overflow:hidden;overflow-x:auto;}
+        .attempt-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px;}
+        .attempt-table th{background:linear-gradient(#1e3a8a,#12285a);color:#fff;text-align:left;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;padding:12px 14px;}
+        .attempt-table td{background:#fff4d9;padding:14px;color:#1b2a4a;}
+        .attempt-badge{display:inline-block;background:#dff3ea;color:#14573a;border:1px solid #a9d9c2;border-radius:999px;padding:3px 12px;font-size:.78rem;font-weight:600;}
+        @media (max-width:700px){.attempt-stats{grid-template-columns:repeat(2,1fr);}}
+
+        /* Shrunk previews: click either one to see it full size */
+        .exam-media img{max-width:450px;width:100%;height:auto;cursor:zoom-in;display:block;border-radius:10px;}
+        .attempt-thumb{display:block;width:450px;max-width:100%;margin-top:32px;cursor:zoom-in;position:relative;overflow:hidden;border-radius:14px;}
+        .attempt-thumb .attempt-card{width:1000px;margin-top:0;zoom:.45;pointer-events:none;}
+        .attempt-thumb:hover,.attempt-thumb:focus-visible{outline:3px solid #f0b400;outline-offset:2px;}
+        .thumb-hint{display:block;margin-top:8px;font-size:.85rem;opacity:.75;}
+        @media (max-width:520px){.attempt-thumb{width:300px;}.attempt-thumb .attempt-card{zoom:.3;}}
+        #lightbox-card{display:none;width:min(1000px,94vw);max-height:92vh;overflow:auto;border-radius:14px;}
+        #lightbox-card .attempt-card{margin:0;}
+        .lightbox.card-mode #lightbox-img{display:none;}
+        .lightbox.card-mode #lightbox-card{display:block;}
+      </style>
+
+      <div class="attempt-thumb zoom-card" tabindex="0" role="button" aria-label="View Cloud Computing Midterm Examination result full size">
+      <article class="attempt-card" aria-label="Cloud Computing Midterm Examination attempt history">
+        <div class="attempt-head">
+          <h3>Attempt history — Cloud Computing Midterm Examination</h3>
+        </div>
+        <div class="attempt-body">
+          <div class="attempt-note">Every attempt you have made for this quiz. The row marked "best" is your highest score.</div>
+
+          <div class="attempt-stats">
+            <div class="attempt-stat"><span>Attempts used</span><strong>1 / 1</strong></div>
+            <div class="attempt-stat"><span>Remaining</span><strong>0</strong></div>
+            <div class="attempt-stat"><span>Best score</span><strong>54 / 70</strong></div>
+            <div class="attempt-stat"><span>Best %</span><strong>77%</strong></div>
+          </div>
+
+          <div class="attempt-table-wrap">
+            <table class="attempt-table">
+              <thead>
+                <tr>
+                  <th>#</th><th>Status</th><th>Score</th><th>%</th><th>Violations</th><th>Started</th><th>Finished</th><th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#1</td>
+                  <td>Submitted</td>
+                  <td>54 / 70</td>
+                  <td><strong>77%</strong></td>
+                  <td>0</td>
+                  <td>10/23/2026, 12:28:19 PM</td>
+                  <td>10/23/2026, 12:31:30 PM</td>
+                  <td><span class="attempt-badge">best</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+      </div>
+      <span class="thumb-hint"></span>
     </div>
   </section>
  
 </main>
  
-<!-- Image lightbox -->
+
 <style>
   .lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:#000;padding:0;}
   .lightbox.open{display:flex;}
@@ -74,13 +145,26 @@
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
   <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-card"></div>
 </div>
 <script>
 (function () {
   var box = document.getElementById('lightbox');
   var img = document.getElementById('lightbox-img');
   function open(src, alt) { img.src = src; img.alt = alt || ''; box.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function close() { box.classList.remove('open'); img.src = ''; document.body.style.overflow = ''; }
+  var cardBox = document.getElementById('lightbox-card');
+  function close() { box.classList.remove('open', 'card-mode'); img.src = ''; cardBox.innerHTML = ''; document.body.style.overflow = ''; }
+  function openCard(card) {
+    cardBox.innerHTML = '';
+    cardBox.appendChild(card.cloneNode(true));
+    box.classList.add('open', 'card-mode');
+    document.body.style.overflow = 'hidden';
+  }
+  document.querySelectorAll('.zoom-card').forEach(function (el) {
+    function go() { var c = el.querySelector('.attempt-card'); if (c) openCard(c); }
+    el.addEventListener('click', go);
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
   document.querySelectorAll('.zoom-link').forEach(function (a) {
     a.addEventListener('click', function (e) {
       e.preventDefault();
@@ -97,4 +181,3 @@
 <script src="script.js"></script>
 </body>
 </html>
- 
